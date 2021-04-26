@@ -65,5 +65,6 @@ let counter = function () {
     return count++;
   }
   return increment();
-};
+};       
+
 ```
