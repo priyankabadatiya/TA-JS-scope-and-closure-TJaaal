@@ -1,6 +1,18 @@
 1. Create a function by your choice that accepts a callback function.
+```js
+function createQuote(quote, callback){ 
+  var myQuote = "Like I always say, " + quote;
+  callback(myQuote); 
+}
+
+function logQuote(quote){
+  console.log(quote);
+}
+
+createQuote("eat your vegetables!", logQuote);
 
 2. Create a function by you choice that returns a function reference.
+
 
 3. Create a higher order function called `map` that takes two inputs:
    - An array of numbers/string/boolean etc
