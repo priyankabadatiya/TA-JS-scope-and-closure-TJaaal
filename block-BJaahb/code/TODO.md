@@ -12,7 +12,7 @@ function outer() {
 let getSum = outer();
 let num = getSum();
 ```
-
+![](./img/IMG_20210430_003345.jpg)
 2.
 
 Create the execution context diagram for following code. Also write the output of the code below.
@@ -28,11 +28,12 @@ function getCounter() {
 
 let counter = getCounter();
 
-counter(); // output
-counter(); // output
-counter(); // output
-counter(); // output
+counter(); // 0
+counter(); // 1
+counter(); // 2
+counter(); // 3
 ```
+![](./img/IMG_20210430_003607.jpg)
 
 3. Create the execution context diagram
 
@@ -51,3 +52,4 @@ tomato();
 
 
 ```
+![](./img/IMG_20210430_003906.jpg)
