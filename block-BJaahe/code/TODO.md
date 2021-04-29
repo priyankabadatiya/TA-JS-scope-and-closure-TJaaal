@@ -3,20 +3,28 @@
 1. Write a function, `outer` that takes an input `string`. Inside the function `outer` define another function expression named `sayHello` which alerts the `input`. `sayHello` should be call immediately after it is defined.
 
 ```js
-// Your code goes here
+function outer(str) {
+  return function sayHello() {
+    return str;
+  }();
+}
 ```
 
 2. Write a function `delay` that accepts two arguments, a callback and the wait for the time in milliseconds (1000 ms is 1 second). `delay` should return a function that, when invoked waits for the specified amount of time before executing. (Use setTimeout)
 
 ```js
-// Your code goes here
+function delay(cb, time){
+
+}
 ```
 
 3. Write a function with a closure. The first function should only take one argument, someone's last name, and return the inner function. The returned `inner` function should take one more argument, someone's first name. When inner function when called it should console.log both the first name and the last name with a space.
 
 ```js
-function lastName() {
-  //  Your code goes here
+function lastName(Name) {
+  return function inner(firstName) {
+    console.log(firstName + " " + Name);
+  };
 }
 
 let lastNameLee = lastName('lee'); // logs nothing
@@ -54,8 +62,13 @@ storyOfMyLife.erase(); // ''
 When `forEach` function is called it returns another function. When the returned function is called it returns the element from the array at specific index. Every time you call the returned function the value of index should increment.
 
 ```js
-function forEach() {
-  // Your code goes here
+function forEach(arr) {
+  let index = 0;
+  return function () {
+    let elem = arr[index];
+    index++;
+    return elem;
+  };
 }
 
 let next = [1, 2, 3, 4, 5];
@@ -72,9 +85,10 @@ The returned function accepts a string `prefix` and returns `prefix` and `title`
 
 ```js
 function addDesignation(title) {
-  // your code goes here
+  return function (prefix) {
+    return title + " " + prefix;
+  };
 }
-
 let sales = addDesignation('Salesman');
 sales('Main'); // Main Salesman
 
