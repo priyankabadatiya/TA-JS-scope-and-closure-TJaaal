@@ -64,7 +64,20 @@ var nextMessage = sayHello('Test');
 <!-- Answer -->
 
 ```js
-// Your code goes here
+var username = undefined;
+let number = 21;
+
+function sayHello(name) {
+  return `Hello ${name}`;
+}
+
+let message;
+var nextMesage = undefined;
+
+// Execution Phase
+
+console.log(username, numbers )
+
 ```
 
 3.
@@ -85,7 +98,22 @@ var nextMessage = sayHello('Test');
 <!-- Answer -->
 
 ```js
-// Your code goes here
+let username;
+let number;
+
+let sayHello = function (name) {
+return `Hello ${name}`;
+};
+
+let message;
+var nextMessage = undefined;
+
+// Execution Phase
+
+console.log(username, numbers);
+
+Uncaught ReferenceError: numbers is not defined.
+
 ```
 
 4.
@@ -107,7 +135,14 @@ var nextMessage = sayHello('Test');
 <!-- Answer -->
 
 ```js
-// Your code goes here
+//Declaration Phase
+
+let username;
+let number;
+let message;
+let sayHello;
+var nextMessage = undefined;
+
 ```
 
 5.
@@ -122,7 +157,10 @@ let age = 21;
 <!-- Answer -->
 
 ```js
-// Your code goes here
+var name = undefined;
+let age;
+console.log(undefined);
+// Uncaught ReferenceError: age is not defined.
 ```
 
 6.
@@ -141,7 +179,17 @@ sayHi();
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Declaration
+
+function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = "Lydia";
+  let age = 21;
+}
+
+sayHi();
+
 ```
 
 7.
@@ -159,7 +207,17 @@ function sayHi(name) {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Declaration
+
+function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = "Lydia";
+  let age = 21;
+}
+
+// Execution
+//  Uncaught ReferenceError: Cannot access 'age' before initialization
 ```
 
 8.
@@ -177,7 +235,13 @@ let sayHi = function sayHi(name) {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Declaration
+
+let sayHi;
+
+// Execution
+
+// Uncaught ReferenceError: sayHi is not defined
 ```
 
 9.
@@ -192,7 +256,16 @@ let num2 = 30;
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Declaration
+
+let num1;
+var sum = undefined;
+let num2;
+
+// Execution
+num1 = 21;
+console.log(sum);
+//  Uncaught ReferenceError: num2 is not defined
 ```
 
 10.
@@ -216,7 +289,25 @@ let sum = add(num1, num2, 4, 5, 6);
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Declaration
+
+var num1 = undefined;
+let sum2;
+let add = (a, b, c, d, e) => {
+  return a + b + c + d + e;
+};
+function addAgian(a, b) {
+  return a + b;
+}
+let add;
+let num;
+let sum;
+
+// Execution
+
+num1 = 21;
+
+//  Uncaught ReferenceError: addAgain is not defined
 ```
 
 11.
@@ -237,7 +328,18 @@ let add = (a, b) => {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Declaration
+
+function test(a) {
+  let num1 = 21;
+  return add(a, num1);
+}
+let sum;s
+let add;
+
+// Execution
+
+// Uncaught ReferenceError: addAgain is not defined
 ```
 
 12.
@@ -258,5 +360,16 @@ function add(a, b) {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Declaration
+
+function test(a) {
+  let num1 = 21;
+  return add(a, num1);
+}
+
+let sum;
+
+function add(a, b) {
+  return a + b;
+}
 ```
