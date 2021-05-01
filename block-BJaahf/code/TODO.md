@@ -10,10 +10,11 @@
 **You can use normal for loop for this function**
 
 ```js
-function loop() {
-  // Your code goes here
-}
-
+function loop(start, test, update, body) {
+   for (let value = start; test(value); value = update(value)) {
+     body(value);
+   }
+ }
 loop(
   3,
   (n) => n > 0,
@@ -31,7 +32,12 @@ Here's how it works. The function has an "accumulator value" which starts as the
 
 ```js
 function reduce(array, callback, initialValue) {}
-
+ let acc = initialValue;
+  for (let i = 0; i < array.length; i++) {
+    acc = callback(acc, array[i]);
+  }
+  return acc;
+}
 // Test
 var nums = [4, 1, 3];
 var add = function (a, b) {
@@ -43,7 +49,12 @@ reduce(nums, add, 0); //-> 8
 3. Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs.
 
 ```js
-function intersection(arrays) {}
+function intersection(arrays) {
+   let arr1 = arrays[0];
+  let arr2 = arrays[1];
+  let arr3 = arrays[2];
+  return arr1.filter((v) => arr2.includes(v) && arr3.includes(v));
+}
 
 // Test
 console.log(
