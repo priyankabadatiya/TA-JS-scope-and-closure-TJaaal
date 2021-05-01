@@ -11,10 +11,10 @@
 
 ```js
 function loop(start, test, update, body) {
-   for (let value = start; test(value); value = update(value)) {
-     body(value);
-   }
- }
+  for (let value = start; test(value); value = update(value)) {
+    body(value);
+  }
+}
 loop(
   3,
   (n) => n > 0,
@@ -50,7 +50,7 @@ reduce(nums, add, 0); //-> 8
 
 ```js
 function intersection(arrays) {
-   let arr1 = arrays[0];
+  let arr1 = arrays[0];
   let arr2 = arrays[1];
   let arr3 = arrays[2];
   return arr1.filter((v) => arr2.includes(v) && arr3.includes(v));
@@ -58,22 +58,23 @@ function intersection(arrays) {
 
 // Test
 console.log(
-  intersection(
-    [5, 10, 15, 20],
-    [15, 88, 1, 5, 7],
-    [1, 10, 15, 5, 20]
-  )
+  intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20])
 ); // should log: [5, 15]
 ```
 
 4. Construct a function `union` that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array.
 
 ```js
-function union(arrays) {}
+function union(arrays) {
+  let first = arrays[0];
+  for (i = 1; i < arrays.length; i++) {
+    let second = arrays[i];
+    first = first.filter((elm) => !second.include(elm));
+  }
+  return first;
+}
 
 // Test
-console.log(
-  union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5])
-);
+console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 ```
