@@ -63,8 +63,10 @@ callWithHello("How Are You?"); // Hello How Are You?
 5. Write a function called `addGame` which takes a string (name of the game) and the current score. It returns a function calling that will increment the score by one and print something like `Score of Basketball is 1`.
 
 ```js
-function addGame(gameName) {
-  
+function addGame(gameName, currentscore) {
+  return function () {
+    return `score of ${gamename} is ${currentscore}`;
+  };
 }
 
 // Output
@@ -80,7 +82,11 @@ cricket(); // Your score of Cricket is 2
 
 ```js
 function getCard(suit) {
-  // your code goes here
+  let value = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+  return function inner() {
+    let randomNum = Math.floor(Math.random() * value.length);
+    return value[randomNum] + " " + suit;
+  };
 }
 
 // Output
