@@ -28,18 +28,20 @@ The returned function either accepts two parameter or one parameter.
 - When you pass one parameter it should return a string with words replaced with the required words.
 
 ```js
-var store={}
 function multipleCensor() {
-  return function(a,b){
-       if(!b){
-     return  Object.keys(store).reduce((acc, cv)=>{
-        acc=a.replace(cv,store[cv])
-        return acc;
-      },"")
-    }else{
-store[a]=b
+  let words = [];
+  return function (...params) {
+    if (params.length === 1) {
+      let quote = params[0];
+      words.forEach((pair) => {
+        quote.replace(pair[0], pair[1]);
+      });
+    } else if (params.length === 2) {
+      words.push(params);
+    } else {
+      alert("the number of parameters are invalid!");
     }
-  }
+  };
 }
 
 let censorQuote = multipleCensor();
@@ -64,7 +66,15 @@ The returned function accepts one parameter.
 
 ```js
 function createCache() {
-  // Your code goes here
+  let obj = {};
+  return function (param) {
+    if (param !== pwd) {
+      obj[param] = cb(param);
+      return cb(param);
+    } else {
+      return obj;
+    }
+  };
 }
 
 function add10(num) {
@@ -84,7 +94,19 @@ addCache("foo"); // {12: 22, 100: 110, 1: 11}
 
 ```js
 function createCache() {
-  // Your code goes here
+  let obj = {};
+  return function (param) {
+    if (param !== pwd) {
+      if (obj[param]) {
+        return obj[param];
+      } else {
+        obj[param] = cb(param);
+        return cb(param);
+      }
+    } else{
+      return obj;
+    }
+  };
 }
 
 function add10(num) {
